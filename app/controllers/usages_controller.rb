@@ -1,6 +1,6 @@
 class UsagesController < ApplicationController
   def index
-    @usages = Usage.all
+    @usages = Usage.page(params[:page]).per(10)
 
     render("usages/index.html.erb")
   end
