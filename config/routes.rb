@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Usage resource:
+  # CREATE
+  get "/usages/new", :controller => "usages", :action => "new"
+  post "/create_usage", :controller => "usages", :action => "create"
+
+  # READ
+  get "/usages", :controller => "usages", :action => "index"
+  get "/usages/:id", :controller => "usages", :action => "show"
+
+  # UPDATE
+  get "/usages/:id/edit", :controller => "usages", :action => "edit"
+  post "/update_usage/:id", :controller => "usages", :action => "update"
+
+  # DELETE
+  get "/delete_usage/:id", :controller => "usages", :action => "destroy"
+  #------------------------------
+
   # Routes for the Brand resource:
   # CREATE
   get "/brands/new", :controller => "brands", :action => "new"

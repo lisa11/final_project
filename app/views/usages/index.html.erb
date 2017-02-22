@@ -1,0 +1,30 @@
+<div class="page-header">
+  <h1>
+    Usages
+    <a href="/usages/new" class="btn btn-lg btn-success">New Usage</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Favorite</th>
+        <th>Date</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @usages.each do |usage| %>
+      <tr>
+        <td><%= usage.favorite_id %></td>
+        <td><%= usage.date %></td>
+        <td>
+          <a href="/usages/<%= usage.id %>" class="btn btn-primary">Show</a>
+          <a href="/usages/<%= usage.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_usage/<%= usage.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
