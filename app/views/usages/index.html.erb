@@ -16,7 +16,13 @@
 
       <% @usages.each do |usage| %>
       <tr>
-        <td><%= usage.favorite.product_id %></td>
+        <td>
+          <% if usage.favorite.present? %>
+            <a href="/favorites/<%= usage.favorite.id %>">
+              <%= usage.favorite.product_id %>
+            </a>
+          <% end %>
+        </td>
         <td><%= usage.date %></td>
         <td>
           <a href="/usages/<%= usage.id %>" class="btn btn-primary">Show</a>

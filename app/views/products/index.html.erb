@@ -21,7 +21,13 @@
 
       <% @products.each do |product| %>
       <tr>
-        <td><%= product.brand.website %></td>
+        <td>
+          <% if product.brand.present? %>
+            <a href="/brands/<%= product.brand.id %>">
+              <%= product.brand.website %>
+            </a>
+          <% end %>
+        </td>
         <td><%= product.shelf_life %></td>
         <td><%= product.skin_type %></td>
         <td><%= product.skincare %></td>
