@@ -16,7 +16,7 @@
 
       <% @usages.each do |usage| %>
       <tr>
-        <td><%= usage.favorite_id %></td>
+        <td><%= usage.favorite.product_id %></td>
         <td><%= usage.date %></td>
         <td>
           <a href="/usages/<%= usage.id %>" class="btn btn-primary">Show</a>
