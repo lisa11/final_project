@@ -21,7 +21,7 @@
 
       <% @products.each do |product| %>
       <tr>
-        <td><%= product.brand_id %></td>
+        <td><%= product.brand.website %></td>
         <td><%= product.shelf_life %></td>
         <td><%= product.skin_type %></td>
         <td><%= product.skincare %></td>
