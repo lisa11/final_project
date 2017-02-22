@@ -1,6 +1,7 @@
 class UsagesController < ApplicationController
   def index
-    @usages = Usage.page(params[:page]).per(10)
+    @q = Usage.ransack(params[:q])
+    @usages = @q.result(:distinct => true).includes(:favorite).page(params[:page]).per(10)
 
     render("usages/index.html.erb")
   end
