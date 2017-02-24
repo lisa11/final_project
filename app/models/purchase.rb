@@ -1,7 +1,7 @@
-class Favorite < ApplicationRecord
+class Purchase < ApplicationRecord
   # Direct associations
 
-  has_many   :usages,
+  has_many   :uses,
              :dependent => :destroy
 
   belongs_to :user

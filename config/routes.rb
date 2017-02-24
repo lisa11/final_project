@@ -2,55 +2,38 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root :to => "products#index"
-  # Routes for the Favorite resource:
+  # Routes for the Purchase resource:
   # CREATE
-  get "/favorites/new", :controller => "favorites", :action => "new"
-  post "/create_favorite", :controller => "favorites", :action => "create"
+  get "/purchases/new", :controller => "purchases", :action => "new"
+  post "/create_purchase", :controller => "purchases", :action => "create"
 
   # READ
-  get "/favorites", :controller => "favorites", :action => "index"
-  get "/favorites/:id", :controller => "favorites", :action => "show"
+  get "/purchases", :controller => "purchases", :action => "index"
+  get "/purchases/:id", :controller => "purchases", :action => "show"
 
   # UPDATE
-  get "/favorites/:id/edit", :controller => "favorites", :action => "edit"
-  post "/update_favorite/:id", :controller => "favorites", :action => "update"
+  get "/purchases/:id/edit", :controller => "purchases", :action => "edit"
+  post "/update_purchase/:id", :controller => "purchases", :action => "update"
 
   # DELETE
-  get "/delete_favorite/:id", :controller => "favorites", :action => "destroy"
+  get "/delete_purchase/:id", :controller => "purchases", :action => "destroy"
   #------------------------------
 
-  # Routes for the Usage resource:
+  # Routes for the Use resource:
   # CREATE
-  get "/usages/new", :controller => "usages", :action => "new"
-  post "/create_usage", :controller => "usages", :action => "create"
+  get "/uses/new", :controller => "uses", :action => "new"
+  post "/create_use", :controller => "uses", :action => "create"
 
   # READ
-  get "/usages", :controller => "usages", :action => "index"
-  get "/usages/:id", :controller => "usages", :action => "show"
+  get "/uses", :controller => "uses", :action => "index"
+  get "/uses/:id", :controller => "uses", :action => "show"
 
   # UPDATE
-  get "/usages/:id/edit", :controller => "usages", :action => "edit"
-  post "/update_usage/:id", :controller => "usages", :action => "update"
+  get "/uses/:id/edit", :controller => "uses", :action => "edit"
+  post "/update_use/:id", :controller => "uses", :action => "update"
 
   # DELETE
-  get "/delete_usage/:id", :controller => "usages", :action => "destroy"
-  #------------------------------
-
-  # Routes for the Brand resource:
-  # CREATE
-  get "/brands/new", :controller => "brands", :action => "new"
-  post "/create_brand", :controller => "brands", :action => "create"
-
-  # READ
-  get "/brands", :controller => "brands", :action => "index"
-  get "/brands/:id", :controller => "brands", :action => "show"
-
-  # UPDATE
-  get "/brands/:id/edit", :controller => "brands", :action => "edit"
-  post "/update_brand/:id", :controller => "brands", :action => "update"
-
-  # DELETE
-  get "/delete_brand/:id", :controller => "brands", :action => "destroy"
+  get "/delete_use/:id", :controller => "uses", :action => "destroy"
   #------------------------------
 
   devise_for :users

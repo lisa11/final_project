@@ -1,13 +1,13 @@
 class ProductsController < ApplicationController
   def index
     @q = Product.ransack(params[:q])
-    @products = @q.result(:distinct => true).includes(:favorites, :brand, :users).page(params[:page]).per(10)
+    @products = @q.result(:distinct => true).includes(:favorites, :users).page(params[:page]).per(10)
 
     render("products/index.html.erb")
   end
 
   def show
-    @favorite = Favorite.new
+    @purchase = Purchase.new
     @product = Product.find(params[:id])
 
     render("products/show.html.erb")
@@ -29,6 +29,7 @@ class ProductsController < ApplicationController
     @product.skincare_category = params[:skincare_category]
     @product.makeup = params[:makeup]
     @product.makeup_category = params[:makeup_category]
+    @product.brand = params[:brand]
 
     save_status = @product.save
 
@@ -62,6 +63,7 @@ class ProductsController < ApplicationController
     @product.skincare_category = params[:skincare_category]
     @product.makeup = params[:makeup]
     @product.makeup_category = params[:makeup_category]
+    @product.brand = params[:brand]
 
     save_status = @product.save
 

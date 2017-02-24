@@ -24,7 +24,7 @@
           Brand
         </label>
 
-        <%= select_tag(:brand_id, options_from_collection_for_select(Brand.all, :id, :website, @product.brand_id), :class => "form-control") %>
+        <input type="text" id="brand_id" name="brand_id" placeholder="Brand" class="form-control" value="<%= @product.brand_id %>">
       </div>
 
       <!-- Label and input for shelf_life -->
@@ -77,6 +77,15 @@
         </label>
 
         <input type="text" id="makeup_category" name="makeup_category" placeholder="Makeup category" class="form-control" value="<%= @product.makeup_category %>">
+      </div>
+
+      <!-- Label and input for brand -->
+      <div class="form-group">
+        <label for="brand" class="control-label">
+          Brand
+        </label>
+
+        <input type="text" id="brand" name="brand" placeholder="Brand" class="form-control" value="<%= @product.brand %>">
       </div>
 
       <button class="btn btn-success">

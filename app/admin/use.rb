@@ -1,6 +1,6 @@
-ActiveAdmin.register Usage do
+ActiveAdmin.register Use do
 
- permit_params :favorite_id, :date
+ permit_params :purchase_id, :date, :user_id
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

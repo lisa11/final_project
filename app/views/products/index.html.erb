@@ -9,6 +9,23 @@
       <p class="lead">Narrow results:</p>
 
         <div class="form-group">
+  <%= f.label :brand_id, "Brand" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :brand_id_gteq, :class => "form-control", :placeholder => "Brand greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :brand_id_lteq, :class => "form-control", :placeholder => "Brand less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+    <%= f.label :brand_cont, "Brand contains" %>
+    <%= f.text_field :brand_cont, :class => "form-control", :placeholder => "Brand contains" %>
+  </div>
+
+<div class="form-group">
     <%= f.label :makeup_category_cont, "Makeup category contains" %>
     <%= f.text_field :makeup_category_cont, :class => "form-control", :placeholder => "Makeup category contains" %>
   </div>
@@ -105,10 +122,7 @@
           });
       </script>
 
-        <div class="form-group">
-      <%= f.label :brand_website_cont, "Brand website contains" %>
-      <%= f.text_field :brand_website_cont, :class => "form-control", :placeholder => "Brand website contains" %>
-    </div>
+        
 
       <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
 
@@ -131,24 +145,20 @@
         <th>Skincare category</th>
         <th>Makeup</th>
         <th>Makeup category</th>
+        <th>Brand</th>
         <th>Actions</th>
       </tr>
 
       <% @products.each do |product| %>
       <tr>
-        <td>
-          <% if product.brand.present? %>
-            <a href="/brands/<%= product.brand.id %>">
-              <%= product.brand.website %>
-            </a>
-          <% end %>
-        </td>
+        <td><%= product.brand_id %></td>
         <td><%= product.shelf_life %></td>
         <td><%= product.skin_type %></td>
         <td><%= product.skincare %></td>
         <td><%= product.skincare_category %></td>
         <td><%= product.makeup %></td>
         <td><%= product.makeup_category %></td>
+        <td><%= product.brand %></td>
         <td>
           <a href="/products/<%= product.id %>" class="btn btn-primary">Show</a>
           <a href="/products/<%= product.id %>/edit" class="btn btn-warning">Edit</a>

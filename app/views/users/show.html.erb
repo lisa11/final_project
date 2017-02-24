@@ -21,6 +21,37 @@
   </div>
 </div>
 
+<!-- A User has many uses -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Uses
+      </li>
+
+      <% @user.uses.each do |use| %>
+        <li class="list-group-item">
+          <a href="/uses/<%= use.id %>">
+            <%= use.purchase_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/uses/<%= use.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/uses/<%= use.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_use/<%= use.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
 <!-- A User has many favorites -->
 
 <div class="row">
@@ -30,23 +61,21 @@
         Favorites
       </li>
 
-      <% @user.favorites.each do |favorite| %>
+      <% @user.favorites.each do |purchase| %>
         <li class="list-group-item">
-          <a href="/favorites/<%= favorite.id %>">
-            <%= favorite.product_id %>
+          <a href="/purchases/<%= purchase.id %>">
+            <%= purchase.product_id %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
-            <a href="/favorites/<%= favorite.id %>" class="btn btn-primary">
+            <a href="/purchases/<%= purchase.id %>" class="btn btn-primary">
               <i class="fa fa-search-plus"></i>
             </a>
-            <%if current_user == favorite.user %>
-              <a href="/favorites/<%= favorite.id %>/edit" class="btn btn-warning">
-                <i class="fa fa-edit"></i>
-              </a>
-              <a href="/delete_favorite/<%= favorite.id %>" class="btn btn-danger" rel="nofollow">
-                <i class="fa fa-trash-o"></i>
-              </a>
-            <% end %>
+            <a href="/purchases/<%= purchase.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_purchase/<%= purchase.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
           </div>
         </li>
       <% end %>
