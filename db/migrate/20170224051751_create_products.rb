@@ -8,6 +8,7 @@ class CreateProducts < ActiveRecord::Migration
       t.string :skincare_category
       t.boolean :makeup
       t.string :makeup_category
+      t.string :brand
 
       t.timestamps
 

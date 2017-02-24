@@ -2,6 +2,10 @@ class User < ApplicationRecord
   # Direct associations
 
   has_many   :favorites,
+             :class_name => "Purchase",
+             :dependent => :destroy
+
+  has_many   :uses,
              :dependent => :destroy
 
   # Indirect associations

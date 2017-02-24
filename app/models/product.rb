@@ -1,9 +1,8 @@
 class Product < ApplicationRecord
   # Direct associations
 
-  belongs_to :brand
-
-  has_many   :favorites
+  has_many   :favorites,
+             :class_name => "Purchase"
 
   # Indirect associations
 
